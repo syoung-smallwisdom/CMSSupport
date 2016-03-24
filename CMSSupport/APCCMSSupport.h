@@ -54,4 +54,12 @@
  */
 + (NSData *)cmsEncrypt:(NSData *)data identityPath:(NSString *)identityPath error:(NSError * __autoreleasing *)error;
 
+/*!
+ * Returns the hashed string using sha-1
+ *
+ * @param input         The input string
+ * @return              The SHA-1 hashed string
+ */
++ (NSString *) sha1:(NSString *)input;
+
 @end

@@ -136,4 +136,18 @@ err:
     return returnValue;
 }
 
++ (NSString *) sha1:(NSString *)input {
+    
+    const char* str = [input cStringUsingEncoding:NSISOLatin1StringEncoding];
+    const NSUInteger len = 20;
+    unsigned char result[len];
+    SHA1((const unsigned char* )str, strlen(str), result);
+    
+    NSMutableString *ret = [NSMutableString stringWithCapacity:len*2];
+    for(int i = 0; i<len; i++) {
+        [ret appendFormat:@"%02x",result[i]];
+    }
+    return ret;
+}
+
 @end
